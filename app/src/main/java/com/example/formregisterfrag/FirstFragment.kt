@@ -5,10 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.TextView
+import android.widget.*
 import androidx.navigation.fragment.findNavController
 import com.example.formregisterfrag.databinding.FragmentFirstBinding
 
@@ -46,33 +43,41 @@ class FirstFragment : Fragment() {
             binding.fullName.error = "این فیلد را پر کنید."
             return false
         }
-        if(binding.userName.text.isNotBlank()){
+        if(binding.userName.text.isNullOrBlank()){
             binding.userName.error = "این فیلد را پر کنید."
             return false
         }
-        if(binding.email.text.isNotBlank()){
+        if(binding.email.text.isNullOrBlank()){
             binding.email.error = "این فیلد را پر کنید."
             return false
         }
-        if (binding.password.text.isNotBlank()){
+        if (binding.password.text.isNullOrBlank()){
             binding.password.error = "این فیلد را پر کنید."
             return false
         }
-        if (binding.reTypePassword.text.isNotBlank()){
+        if (binding.reTypePassword.text.isNullOrBlank()){
             binding.reTypePassword.error = "این فیلد را پر کنید."
             return false
         }
         if (!genderCheck()){
+            Toast.makeText(context, "جنسیت را وارد کنید", Toast.LENGTH_SHORT).show()
             return false
         }
         return true
     }
     fun passWordCheck():Boolean{
-       if(binding.password.text == binding.reTypePassword.text){
+       if(binding.password.text.toString() == binding.reTypePassword.text.toString()){
            return true
        }
+        binding.reTypePassword.error = "پسورد ها همخوانی ندارند."
         return false
     }
+
+
+
+
+
+
     fun genderCheck():Boolean{
         val gender = when(binding.genderRadio.checkedRadioButtonId){
             binding.radioButton.id -> "Female"
@@ -83,12 +88,33 @@ class FirstFragment : Fragment() {
     }
 
 
+    fun genderCheck1():Boolean{
+        val gender = when(binding.genderRadio.checkedRadioButtonId){
+            binding.radioButton.id -> "Female"
+            binding.radioButton2.id -> "Male"
+            else -> "not chosen yet"
+        }
+        if (gender == "not chosen yet"){
+            return false
+        }
+        return true
+    }
+
+
+
+
+
+
+
+
+
+
     private fun initView() {
-        var fullNameTxv = binding.fullName.text
-        var userNameTxv = binding.userName.text
-        var emailTxv = binding.email.text
-        var passWordTxv = binding.password.text
-        var reTypePassWordTxv = binding.reTypePassword.text
+        var fullNameTxv = binding.fullName.text.toString()
+        var userNameTxv = binding.userName.text.toString()
+        var emailTxv = binding.email.text.toString()
+        var passWordTxv = binding.password.text.toString()
+//        var reTypePassWordTxv = binding.reTypePassword.text.toString()
         var gender = when(binding.genderRadio.checkedRadioButtonId){
             binding.radioButton.id -> "زن"
             binding.radioButton2.id -> "مرد"

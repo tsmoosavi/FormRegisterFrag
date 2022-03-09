@@ -18,5 +18,9 @@
         android:id="@+id/secondeFragment"
         android:name="com.example.formregisterfrag.SecondeFragment"
         android:label="fragment_seconde"
-        tools:layout="@layout/fragment_seconde" />
+        tools:layout="@layout/fragment_seconde" >
+        <action
+            android:id="@+id/action_secondeFragment_to_firstFragment"
+            app:destination="@id/firstFragment" />
+    </fragment>
 </navigation>
