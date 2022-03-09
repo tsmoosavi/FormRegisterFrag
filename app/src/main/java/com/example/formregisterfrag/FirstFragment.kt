@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.example.formregisterfrag.databinding.FragmentFirstBinding
 
@@ -26,14 +27,15 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initView()
+
         buttonClickListener()
     }
 
     private fun buttonClickListener() {
        binding.register.setOnClickListener{
            if (isfielsFullAndCorrect()&&passWordCheck()){
-               findNavController().navigate(R.id.action_firstFragment_to_secondeFragment)
+               sendInfo()
+
            }
        }
     }
@@ -109,7 +111,7 @@ class FirstFragment : Fragment() {
 
 
 
-    private fun initView() {
+    private fun sendInfo() {
         var fullNameTxv = binding.fullName.text.toString()
         var userNameTxv = binding.userName.text.toString()
         var emailTxv = binding.email.text.toString()
@@ -120,6 +122,12 @@ class FirstFragment : Fragment() {
             binding.radioButton2.id -> "مرد"
             else -> "not chosen yet"
         }
+        var bundle = bundleOf("name" to fullNameTxv,
+                                "username" to userNameTxv,
+                                "email" to emailTxv,
+                                "password" to passWordTxv,
+                                "gender" to gender)
+        findNavController().navigate(R.id.action_firstFragment_to_secondeFragment,bundle)
     }
 
 }
