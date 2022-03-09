@@ -90,12 +90,6 @@ class FirstFragment : Fragment() {
         binding.reTypePassword.error = "پسورد ها همخوانی ندارند."
         return false
     }
-
-
-
-
-
-
     fun genderCheck():Boolean{
         val gender = when(binding.genderRadio.checkedRadioButtonId){
             binding.radioButton.id -> "Female"
@@ -104,19 +98,6 @@ class FirstFragment : Fragment() {
         }
         return gender != "not chosen yet"
     }
-
-//    fun genderCheck1():Boolean{
-//        val gender = when(binding.genderRadio.checkedRadioButtonId){
-//            binding.radioButton.id -> "Female"
-//            binding.radioButton2.id -> "Male"
-//            else -> "not chosen yet"
-//        }
-//        if (gender == "not chosen yet"){
-//            return false
-//        }
-//        return true
-//    }
-
     private fun sendInfo() {
         var fullNameTxv = binding.fullName.text.toString()
         var userNameTxv = binding.userName.text.toString()
@@ -134,5 +115,4 @@ class FirstFragment : Fragment() {
                                 "gender" to gender)
         findNavController().navigate(R.id.action_firstFragment_to_secondeFragment,bundle)
     }
-
 }
