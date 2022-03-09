@@ -90,24 +90,17 @@ class FirstFragment : Fragment() {
     }
 
 
-    fun genderCheck1():Boolean{
-        val gender = when(binding.genderRadio.checkedRadioButtonId){
-            binding.radioButton.id -> "Female"
-            binding.radioButton2.id -> "Male"
-            else -> "not chosen yet"
-        }
-        if (gender == "not chosen yet"){
-            return false
-        }
-        return true
-    }
-
-
-
-
-
-
-
+//    fun genderCheck1():Boolean{
+//        val gender = when(binding.genderRadio.checkedRadioButtonId){
+//            binding.radioButton.id -> "Female"
+//            binding.radioButton2.id -> "Male"
+//            else -> "not chosen yet"
+//        }
+//        if (gender == "not chosen yet"){
+//            return false
+//        }
+//        return true
+//    }
 
 
 
@@ -116,7 +109,6 @@ class FirstFragment : Fragment() {
         var userNameTxv = binding.userName.text.toString()
         var emailTxv = binding.email.text.toString()
         var passWordTxv = binding.password.text.toString()
-//        var reTypePassWordTxv = binding.reTypePassword.text.toString()
         var gender = when(binding.genderRadio.checkedRadioButtonId){
             binding.radioButton.id -> "زن"
             binding.radioButton2.id -> "مرد"

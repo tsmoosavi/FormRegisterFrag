@@ -1,5 +1,7 @@
 package com.example.formregisterfrag
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -34,11 +36,24 @@ class SecondeFragment : Fragment() {
     }
 
      fun initView() {
-        var fullNameBtn =  binding.fullnamebox
-        var userNameBtn = binding.usernamebox
-        var emailBtn = binding.emailbox
-        var passWordBtn = binding.passwordbox
-        var genderBtn = binding.genderbox
-        var saveBtn = binding.savebox
+
+       binding.fullnamebox.text = requireArguments().getString("name")
+       binding.usernamebox.text =requireArguments().getString("username")
+       binding.emailbox.text = requireArguments().getString( "email")
+       binding.passwordbox.text = requireArguments().getString("password")
+       binding.genderbox.text = requireArguments().getString("gender")
+       binding.savebox.setOnClickListener{
+
+       }
+    }
+    fun saveInformation(){
+        var saveInfo : SharedPreferences = requireActivity().getSharedPreferences("personalInformation", Context.MODE_PRIVATE)
+        var editor = saveInfo.edit()
+        editor.putString("savedName",binding.fullnamebox.text.toString())
+        editor.putString("savedUserName",binding.usernamebox.text.toString())
+        editor.putString("savedmail",binding.usernamebox.text.toString())
+        editor.putString("savedpassword",binding.usernamebox.text.toString())
+        editor.putString("savedgender",binding.usernamebox.text.toString())
+        editor.apply()
     }
 }
