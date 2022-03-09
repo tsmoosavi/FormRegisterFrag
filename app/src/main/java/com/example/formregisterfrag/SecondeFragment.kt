@@ -52,9 +52,9 @@ class SecondeFragment : Fragment() {
         var editor = saveInfo.edit()
         editor.putString("savedName",binding.fullnamebox.text.toString())
         editor.putString("savedUserName",binding.usernamebox.text.toString())
-        editor.putString("savedmail",binding.usernamebox.text.toString())
-        editor.putString("savedpassword",binding.usernamebox.text.toString())
-        editor.putString("savedgender",binding.usernamebox.text.toString())
+        editor.putString("savedmail",binding.emailbox.text.toString())
+        editor.putString("savedpassword",binding.passwordbox.text.toString())
+        editor.putString("savedgender",binding.genderbox.text.toString())
         editor.apply()
     }
 }

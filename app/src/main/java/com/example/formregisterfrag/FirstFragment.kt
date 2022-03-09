@@ -1,5 +1,7 @@
 package com.example.formregisterfrag
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,8 +29,22 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        showSavedInfo()
         buttonClickListener()
+    }
+
+    private fun showSavedInfo() {
+        var saveInfo : SharedPreferences = requireActivity().getSharedPreferences("personalInformation", Context.MODE_PRIVATE)
+        binding.fullName.setText(saveInfo.getString("savedName",null))
+        binding.userName.setText(saveInfo.getString("savedUserName",null))
+        binding.email.setText(saveInfo.getString("savedmail",null))
+        binding.password.setText(saveInfo.getString("savedpassword",null))
+        binding.reTypePassword.setText(saveInfo.getString("savedpassword",null))
+        if (saveInfo.getString("savedgender",null) =="زن"){
+            binding.radioButton.isChecked = true
+        }else {
+            binding.radioButton2.isChecked = true
+        }
     }
 
     private fun buttonClickListener() {
@@ -89,7 +105,6 @@ class FirstFragment : Fragment() {
         return gender != "not chosen yet"
     }
 
-
 //    fun genderCheck1():Boolean{
 //        val gender = when(binding.genderRadio.checkedRadioButtonId){
 //            binding.radioButton.id -> "Female"
@@ -101,8 +116,6 @@ class FirstFragment : Fragment() {
 //        }
 //        return true
 //    }
-
-
 
     private fun sendInfo() {
         var fullNameTxv = binding.fullName.text.toString()
