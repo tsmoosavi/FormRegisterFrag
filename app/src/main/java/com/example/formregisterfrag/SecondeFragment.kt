@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import androidx.navigation.fragment.findNavController
 import com.example.formregisterfrag.databinding.FragmentSecondeBinding
 import com.google.android.material.button.MaterialButton
 
@@ -36,14 +37,14 @@ class SecondeFragment : Fragment() {
     }
 
      fun initView() {
-
        binding.fullnamebox.text = requireArguments().getString("name")
        binding.usernamebox.text =requireArguments().getString("username")
        binding.emailbox.text = requireArguments().getString( "email")
        binding.passwordbox.text = requireArguments().getString("password")
        binding.genderbox.text = requireArguments().getString("gender")
        binding.savebox.setOnClickListener{
-
+            saveInformation()
+           findNavController().navigate(R.id.action_secondeFragment_to_firstFragment)
        }
     }
     fun saveInformation(){

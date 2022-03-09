@@ -33,7 +33,7 @@ class FirstFragment : Fragment() {
 
     private fun buttonClickListener() {
        binding.register.setOnClickListener{
-           if (isfielsFullAndCorrect()&&passWordCheck()){
+           if (isfielsFullAndCorrect() && passWordCheck()){
                sendInfo()
 
            }
