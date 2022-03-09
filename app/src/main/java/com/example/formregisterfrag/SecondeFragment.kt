@@ -8,11 +8,12 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import com.example.formregisterfrag.databinding.FragmentSecondeBinding
 import com.google.android.material.button.MaterialButton
 
 
 class SecondeFragment : Fragment() {
-
+    lateinit var binding: FragmentSecondeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -22,20 +23,22 @@ class SecondeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentSecondeBinding.inflate(inflater,container, false)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_seconde, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initView()
         super.onViewCreated(view, savedInstanceState)
     }
-    private fun initView() {
-        var fullNameBtn = view?.findViewById<MaterialButton>(R.id.fullnamebox)
-        var userNameBtn = view?.findViewById<MaterialButton>(R.id.usernamebox)
-        var emailBtn = view?.findViewById<MaterialButton>(R.id.emailbox)
-        var passWordBtn = view?.findViewById<MaterialButton>(R.id.passwordbox)
-        var genderBtn = view?.findViewById<MaterialButton>(R.id.genderbox)
-        var saveBtn = view?.findViewById<MaterialButton>(R.id.savebox)
+
+     fun initView() {
+        var fullNameBtn =  binding.fullnamebox
+        var userNameBtn = binding.usernamebox
+        var emailBtn = binding.emailbox
+        var passWordBtn = binding.passwordbox
+        var genderBtn = binding.genderbox
+        var saveBtn = binding.savebox
     }
 }
