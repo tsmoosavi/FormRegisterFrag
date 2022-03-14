@@ -108,11 +108,16 @@ class FirstFragment : Fragment() {
             binding.radioButton2.id -> "مرد"
             else -> "not chosen yet"
         }
-        var bundle = bundleOf("name" to fullNameTxv,
-                                "username" to userNameTxv,
-                                "email" to emailTxv,
-                                "password" to passWordTxv,
-                                "gender" to gender)
-        findNavController().navigate(R.id.action_firstFragment_to_secondeFragment,bundle)
+
+
+
+
+        var sendData = FirstFragmentDirections.actionFirstFragmentToSecondeFragment(fullNameTxv,userNameTxv,emailTxv,passWordTxv,gender)
+//                bundle = bundleOf("name" to fullNameTxv,
+//                                "username" to userNameTxv,
+//                                "email" to emailTxv,
+//                                "password" to passWordTxv,
+//                                "gender" to gender)
+        findNavController().navigate(sendData)
     }
 }
