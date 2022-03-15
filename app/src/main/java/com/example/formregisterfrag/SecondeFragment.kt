@@ -44,12 +44,6 @@ class SecondeFragment : Fragment() {
          binding.emailbox.text = args.email
          binding.passwordbox.text = args.passWord
          binding.genderbox.text = args.gender
-
-//       binding.fullnamebox.text = requireArguments().getString("name")
-//       binding.usernamebox.text =requireArguments().getString("username")
-//       binding.emailbox.text = requireArguments().getString( "email")
-//       binding.passwordbox.text = requireArguments().getString("password")
-//       binding.genderbox.text = requireArguments().getString("gender")
        binding.savebox.setOnClickListener{
             saveInformation()
            findNavController().navigate(R.id.action_secondeFragment_to_firstFragment)

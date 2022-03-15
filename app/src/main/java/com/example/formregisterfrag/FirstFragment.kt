@@ -112,11 +112,6 @@ class FirstFragment : Fragment() {
 
 
         var action = FirstFragmentDirections.actionFirstFragmentToSecondeFragment(fullNameTxv,userNameTxv,emailTxv,passWordTxv,gender)
-//                bundle = bundleOf("name" to fullNameTxv,
-//                                "username" to userNameTxv,
-//                                "email" to emailTxv,
-//                                "password" to passWordTxv,
-//                                "gender" to gender)
         findNavController().navigate(action)
     }
 }
