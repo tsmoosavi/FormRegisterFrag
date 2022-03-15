@@ -11,12 +11,14 @@ import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.formregisterfrag.databinding.FragmentSecondeBinding
 import com.google.android.material.button.MaterialButton
 
 
 class SecondeFragment : Fragment() {
     lateinit var binding: FragmentSecondeBinding
+    val args: SecondeFragmentArgs by navArgs()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -37,11 +39,17 @@ class SecondeFragment : Fragment() {
     }
 
      fun initView() {
-       binding.fullnamebox.text = requireArguments().getString("name")
-       binding.usernamebox.text =requireArguments().getString("username")
-       binding.emailbox.text = requireArguments().getString( "email")
-       binding.passwordbox.text = requireArguments().getString("password")
-       binding.genderbox.text = requireArguments().getString("gender")
+         binding.fullnamebox.text = args.name
+         binding.usernamebox.text = args.userName
+         binding.emailbox.text = args.email
+         binding.passwordbox.text = args.passWord
+         binding.genderbox.text = args.gender
+
+//       binding.fullnamebox.text = requireArguments().getString("name")
+//       binding.usernamebox.text =requireArguments().getString("username")
+//       binding.emailbox.text = requireArguments().getString( "email")
+//       binding.passwordbox.text = requireArguments().getString("password")
+//       binding.genderbox.text = requireArguments().getString("gender")
        binding.savebox.setOnClickListener{
             saveInformation()
            findNavController().navigate(R.id.action_secondeFragment_to_firstFragment)
