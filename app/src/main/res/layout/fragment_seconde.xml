@@ -13,55 +13,60 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <com.google.android.material.button.MaterialButton
+        <TextView
             android:id="@+id/fullnamebox"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginTop="40dp"
             android:backgroundTint="#80DEEA"
-            app:cornerRadius="20dp">
+            android:gravity="center"
+            android:background="@drawable/rounded_shape">
 
-        </com.google.android.material.button.MaterialButton>
+        </TextView>
 
-        <com.google.android.material.button.MaterialButton
+        <TextView
             android:id="@+id/usernamebox"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginTop="40dp"
             android:backgroundTint="#80DEEA"
-            app:cornerRadius="20dp">
+            android:gravity="center"
+            android:background="@drawable/rounded_shape">
 
-        </com.google.android.material.button.MaterialButton>
+        </TextView>
 
-        <com.google.android.material.button.MaterialButton
+        <TextView
             android:id="@+id/emailbox"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginTop="40dp"
             android:backgroundTint="#80DEEA"
-            app:cornerRadius="20dp">
+            android:gravity="center"
+            android:background="@drawable/rounded_shape">
 
-        </com.google.android.material.button.MaterialButton>
+        </TextView>
 
-        <com.google.android.material.button.MaterialButton
+        <TextView
             android:id="@+id/passwordbox"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginTop="40dp"
             android:backgroundTint="#80DEEA"
-            app:cornerRadius="20dp">
+            android:gravity="center"
+            android:background="@drawable/rounded_shape">
 
-        </com.google.android.material.button.MaterialButton>
+        </TextView>
 
-        <com.google.android.material.button.MaterialButton
+        <TextView
             android:id="@+id/genderbox"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginTop="40dp"
             android:backgroundTint="#80DEEA"
-            app:cornerRadius="20dp">
+            android:gravity="center"
+            android:background="@drawable/rounded_shape">
 
-        </com.google.android.material.button.MaterialButton>
+        </TextView>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/savebox"
